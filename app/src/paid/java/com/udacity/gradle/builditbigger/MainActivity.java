@@ -1,23 +1,27 @@
-package com.udacity.gradle.builditbigger.paid;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.androidmonk.androiddisplayjokelib.JokeDetailsActivity;
-import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
-import com.udacity.gradle.builditbigger.JokeListener;
-import com.udacity.gradle.builditbigger.R;
+
 
 public class MainActivity extends AppCompatActivity implements JokeListener {
+
+    private String joke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     @Override
@@ -46,10 +50,15 @@ public class MainActivity extends AppCompatActivity implements JokeListener {
         new EndpointsAsyncTask(this).execute();
     }
 
+
+
     @Override
     public void onJokeLoaded(String joke) {
         Intent intent = new Intent(this, JokeDetailsActivity.class);
         intent.putExtra(JokeDetailsActivity.EXTRA_JOKE, joke);
         startActivity(intent);
     }
+
+
+
 }

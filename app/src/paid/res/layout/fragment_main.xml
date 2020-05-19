@@ -8,6 +8,5 @@
 
    <include layout="@layout/partial_joke_section"/>
 
-   <include layout="@layout/partial_ad_holder"/>
 
 </RelativeLayout>
