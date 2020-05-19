@@ -42,7 +42,11 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         try {
             return myApiService.tellJoke().execute().getText();
         } catch (IOException e) {
-            return e.getMessage();
+
+            //Returning null is useful to avoid a false testing the AsyncTask.
+            //Since we check for non null and non empty string to validate the joke!
+            e.printStackTrace();
+            return null;
         }
     }
 

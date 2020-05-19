@@ -34,6 +34,7 @@ public class EndpointsAsyncTaskTest {
             assertFalse("joke is empty", TextUtils.isEmpty(result));
         } catch (InterruptedException e) {
             e.printStackTrace();
+
         }
     }
 }
