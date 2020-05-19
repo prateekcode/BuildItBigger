@@ -31,10 +31,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Specifies one flavor dimension.
+    flavorDimensions "tier"
+    productFlavors {
+        free {
+            dimension "tier"
+            applicationIdSuffix ".free"
+        }
+
+        paid {
+            dimension "tier"
+            applicationIdSuffix ".paid"
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation project(path: ':androiddisplayjokelib')
     implementation 'com.android.support:appcompat-v7:28.0.0'
